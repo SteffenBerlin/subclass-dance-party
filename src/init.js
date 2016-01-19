@@ -36,8 +36,8 @@ $(document).ready(function() {
   });
 
 $(".lineUpDancers").on("click", function(event){
-  $(".germandancer").animate({"left":"5%"}, "slow");
-  $(".britishdancer").animate({"left":"90%"}, "slow");
+  $(".germandancer").animate({left:"5%"}, "slow");
+  $(".britishdancer").animate({left:"90%"}, "slow");
 
 });
 });
