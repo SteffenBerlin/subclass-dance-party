@@ -1,5 +1,7 @@
 $(document).ready(function() {
   window.dancers = [];
+  var germanCounter = 0;
+  var britishCounter = 0;
 
   $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -19,9 +21,7 @@ $(document).ready(function() {
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-    // console.log(dancerMakerFunction, "the whole dancerMakerFunction variable");
-    // console.log(window[dancerMakerFunctionName], "inside window")
-    // console.log(typeof window[dancerMakerFunctionName]);
+    
 
     // make a dancer with a random position
   
@@ -30,16 +30,42 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    // console.dir(dancer);
+    // push the dancers to the window.dancers array
+    window.dancers.push(dancer);
+    if(dancer.$node[0].className === "germandancer"){
+      germanCounter++;
+    }
+    if(dancer.$node[0].className === "britishdancer"){
+      britishCounter++;
+    }
+
     // console.log(dancer.$node, "dancer & node");
     $('body').append(dancer.$node);
   });
 
 $(".lineUpDancers").on("click", function(event){
-  $(".germandancer").animate({left:"5%"}, "slow");
-  $(".britishdancer").animate({left:"90%"}, "slow");
+  console.log($(window).height());
+  var germanTop = 0;
+  var britishTop = 0;
+  for(var i = 0; i < window.dancers.length; i++) {
+    if(window.dancers[i].$node[0].className === "germandancer"){
+      window.dancers[i].lineUp(germanTop);
+      germanTop+=(($(window).height()) / germanCounter);
+    } else if (window.dancers[i].$node[0].className === "britishdancer") {
+      window.dancers[i].lineUp(britishTop);
+      britishTop+=(($(window).height()) / britishCounter);
+    }
+  }
+ 
+  $(".britishdancer").animate({left:"90%"}, 2500);
+  $(".germandancer").animate({left:"5%"}, 2500);
 
 });
 });
+
+// $(".britishdancer").mouseover(function(){
+//     $("britishdancer").animate({left: "90%"}, 2000);
+// });
+
 
 
