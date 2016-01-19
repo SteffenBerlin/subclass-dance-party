@@ -24,7 +24,7 @@ $(document).ready(function() {
     // console.log(typeof window[dancerMakerFunctionName]);
 
     // make a dancer with a random position
-
+  
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
@@ -36,8 +36,8 @@ $(document).ready(function() {
   });
 
 $(".lineUpDancers").on("click", function(event){
-  $(".germandancer").animate({"left":"0px"}, "slow");
-  $(".britishdancer").animate({"left":"1700"}, "slow");
+  $(".germandancer").animate({"left":"5%"}, "slow");
+  $(".britishdancer").animate({"left":"90%"}, "slow");
 
 });
 });
