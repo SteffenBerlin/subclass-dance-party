@@ -13,6 +13,8 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 
   // return dancer;
   this.timeBetweenSteps = timeBetweenSteps;
+  // console.log(this.left, "left from parent function");
+  // console.log(this.top, "top from parent function")
   this.setPosition(this.top, this.left);
 };
 
@@ -26,6 +28,9 @@ makeDancer.prototype.step = function() {
 // dancer.step();
 
 makeDancer.prototype.setPosition = function(top, left) {
+  // console.log("in set position")
+  // console.log(top, "top inside set position")
+  // console.log(left, "left inside set position")
   // Use css top and left properties to position our <span> tag
   // where it belongs on the page. See http://api.jquery.com/css/
   //
@@ -34,6 +39,7 @@ makeDancer.prototype.setPosition = function(top, left) {
     left: left
   };
   this.$node.css(styleSettings);
+  console.log(this.$node);
 };
 
 // this.setPosition(top, left);

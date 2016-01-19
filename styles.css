@@ -2,8 +2,7 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
-  background-color:#444;
+  margin: 0px; 
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -27,8 +26,21 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
-.bluedancer{
-  border:20px solid blue;
-  border-radius:20px;
+.germandancer{
+  content: url("http://www.picgifs.com/graphics/g/germany/graphics-germany-689926.gif");
+  height: 240px;
+  width: 100px;
+  position:absolute;
+}
+
+.restofpage{
+  background: url("ourbackground.png");
+  height:100vh;
+}
+
+.britishdancer{
+  content: url("http://www.picgifs.com/graphics/e/england/graphics-england-027299.gif");
+  height: 240px;
+  width: 100px;
   position:absolute;
 }

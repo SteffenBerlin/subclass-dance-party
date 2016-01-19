@@ -34,5 +34,12 @@ $(document).ready(function() {
     // console.log(dancer.$node, "dancer & node");
     $('body').append(dancer.$node);
   });
+
+$(".lineUpDancers").on("click", function(event){
+  $(".germandancer").animate({"left":"0px"}, "slow");
+  $(".britishdancer").animate({"left":"1700"}, "slow");
+
 });
+});
+
 
