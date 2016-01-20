@@ -43,7 +43,12 @@ makeDancer.prototype.setPosition = function(top, left) {
 };
 
 makeDancer.prototype.lineUp = function(newTop) {
+  this.top = newTop;
   this.setPosition(newTop);
 };
 
 // this.setPosition(top, left);
+
+// makeDancer.prototype.mouse = function() {
+  
+// };

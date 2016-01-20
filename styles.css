@@ -44,3 +44,13 @@ body, a:link, a:visited, a:active{
   width: 100px;
   position:absolute;
 }
+
+.mousebox{
+  background-color: green;
+  float:left;
+  height: 100%;
+  position: absolute;
+  top: 75px;
+  left: 5%;
+  width: 150px;
+}

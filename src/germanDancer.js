@@ -4,6 +4,7 @@ var makeGermanDancer = function(top, left, timeBetweenSteps) {
 
   this.step(timeBetweenSteps);
   this.setPosition(this.top, this.left);
+ 
   // console.log(top, "top from blue dancer")
   // console.log(left, "left from blue dancer")
   // console.log(this.left, "left")
