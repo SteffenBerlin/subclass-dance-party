@@ -15,6 +15,9 @@ makeBritishDancer.prototype = Object.create(makeDancer.prototype);
 
 makeBritishDancer.prototype.constructor = makeBritishDancer;
 
+//Setup a unique method to check which constructor certain dancers are coming from
+makeBritishDancer.prototype.british = function(){};
+
 makeBritishDancer.prototype.step = function() {
 
   makeDancer.prototype.step.call(this);

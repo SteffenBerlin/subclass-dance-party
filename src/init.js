@@ -1,22 +1,23 @@
-//HELPER FUNCTIONS:
-
-
-
-
-
-
-
-//DOC READY
 
 $(document).ready(function() {
   window.dancers = [];
   var germanCounter = 0;
   var britishCounter = 0;
 
-  // var dancerIterater
-
   var distanceCalc = function(top1, left1, top2, left2) {
-    return Math.sqrt((Math.pow((Math.abs(top1 - top2)),2))+(Math.pow((Math.abs(left1 - left2)),2)));
+    // return Math.sqrt((Math.pow((Math.abs(top1 - top2)),2))+(Math.pow((Math.abs(left1 - left2)),2)));
+    console.log(left1, "left1");
+    console.log(left2, "left2");
+    var xDistance = Math.abs(top1 - top2);
+    var yDistance = Math.abs(left1 - left2);
+    var squaredX = Math.pow(xDistance, 2);
+    var squareY = Math.pow(yDistance, 2);
+    return Math.sqrt(squaredX + squareY);
+
+
+
+
+
     // console.log(distance);
     // console.log(left1, left2, "left 1 and left 2");
     // console.log(left1 - left2, "left one minus left2");
@@ -28,18 +29,23 @@ $(document).ready(function() {
   };
 
   var dancerIt = function(mouseLeft, mouseTop){
-    var closestDist = 6398713267;
+    var closestDist = 100000;
     var closestDancer;
+    var leftCar;
+
     for(var i = 0; i < window.dancers.length; i++){
+      leftCar = parseInt(window.dancers[i].$node.css("left"));
       //If the mouse left is less than something
-      var leftCar = (mouseLeft < 950) ? 50 : 2000;
-      var currDistance = distanceCalc(mouseTop, mouseLeft, window.dancers[i].top, leftCar);
+      // console.log(leftCar, "left character")
+      // console.log(window.dancers[i].top);
+      // console.log(parseInt(window.dancers[i].$node.css("top")), ".css top!");
+      var currDistance = distanceCalc(parseInt(window.dancers[i].$node.css("top")), leftCar,mouseTop, mouseLeft);
       // console.log(currDistance, "current distance")
       // console.log(closestDist, "closest distance")
       if(currDistance < closestDist){
         closestDist = currDistance;
         closestDancer = window.dancers[i];
-        // console.log(closestDancer, "closestDancer")
+        console.log("Inside the conditional", currDistance)
       }
     }
     return closestDancer;
@@ -101,20 +107,27 @@ $(".lineUpDancers").on("click", function(event){
     }
   }
  
-  $(".britishdancer").animate({left:"90%"}, 2500);
-  $(".germandancer").animate({left:"5%"}, 2500);
+  $(".britishdancer").animate({left:"90%"}, 500);
+  $(".germandancer").animate({left:"5%"}, 500);
+
   $('.mousebox').mouseover(function(event){
+    // console.log(event.pageX, "X axis");
+    // console.log(event.pageY, "Y axis");
     var selectedDancer = dancerIt(event.pageX, event.pageY);
+    //you can animate directly because $node has access to all jquery methods
+    if(selectedDancer.$node[0].className === "germandancer"){
+    selectedDancer.$node.animate({left:"50%"}, 500);
+    } else if (selectedDancer.$node[0].className === "britishdancer") {
+      selectedDancer.$node.animate({left:"60%"}, 500);
+    }
+    // console.log(selectedDancer.$node)
+    // $(".moused").animate({left:"50%"}, 500);
     // console.log(selectedDancer);
   });
 
 });
 });
 
-
-// $(".britishdancer").mouseover(function(){
-//     $("britishdancer").animate({left: "90%"}, 2000);
-// });
 
 
 
